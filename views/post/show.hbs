@@ -1,0 +1,26 @@
+<h1>Show</h1>
+
+<div>
+    <h4>{{post.title}}</h4>
+    <p>{{post.description}}</p>
+    <a href='https://{{post.link}}' target="_blank">{{post.link}}</a>
+</div>
+<div>
+    <a href='/post/{{post.id}}/edit'>Edit</a>
+    <form action='/post/{{post.id}}?_method=DELETE' method='post'>
+        <input type='submit' value='Delete'>
+    </form>
+</div>
+<div>
+    <form action='/post/{{post._id}}/comment?_method=PUT' method='post'>
+        <p>
+            <textarea id="comment" name="comment" type="text" rows="8" cols="48"></textarea>
+        </p>
+        <button type='submit'>Comment</button>
+    </form>
+</div>
+{{#each post.comments}}
+<div>
+    {{comment}}
+</div>
+{{/each}}
