@@ -46,7 +46,7 @@ module.exports = {
 			});
 	},
 	delete: function(req, res) {
-		Post.remove({ _id: req.params.id }).then((post) => {
+		Post.findOneAndDelete({ _id: req.params.id }).then((post) => {
 			console.log(post);
 			res.redirect('/');
 		});
